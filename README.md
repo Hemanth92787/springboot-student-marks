@@ -79,9 +79,7 @@ http://localhost:9090/percent
 
 Hemanth Reddy Palem
 📍 Bangalore, India
-📧 [your-email@example.com
-]
-🌐 [Your LinkedIn or Portfolio link if you want to add it]
+
 
 🏁 Future Improvements
 
