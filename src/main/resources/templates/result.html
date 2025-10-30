@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Result</title>
+    <style>
+        body {
+            font-family: "Poppins", Arial, sans-serif;
+            background: linear-gradient(to right, #dcedc8, #c5cae9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+            padding: 35px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            animation: fadeIn 0.8s ease;
+        }
+        h2 {
+            color: #1a237e;
+            margin-bottom: 25px;
+        }
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .pass {
+            color: green;
+            font-weight: bold;
+            animation: glowGreen 1.5s infinite alternate;
+        }
+        .fail {
+            color: red;
+            font-weight: bold;
+            animation: glowRed 1.5s infinite alternate;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 25px;
+            background-color: #3949ab;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background-color: #283593;
+            transform: translateY(-2px);
+        }
+        @keyframes glowGreen {
+            from { text-shadow: 0 0 5px #76ff03; }
+            to { text-shadow: 0 0 15px #64dd17; }
+        }
+        @keyframes glowRed {
+            from { text-shadow: 0 0 5px #ff5252; }
+            to { text-shadow: 0 0 15px #e53935; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Student Result</h2>
+        <p><strong>Roll No:</strong> <span th:text="${roll}"></span></p>
+        <p><strong>Name:</strong> <span th:text="${name}"></span></p>
+        <p><strong>Marks 1:</strong> <span th:text="${m1}"></span></p>
+        <p><strong>Marks 2:</strong> <span th:text="${m2}"></span></p>
+        <p><strong>Marks 3:</strong> <span th:text="${m3}"></span></p>
+        <p><strong>Total:</strong> <span th:text="${total}"></span></p>
+        <p><strong>Percentage:</strong> <span th:text="${percent}"></span>%</p>
+        <p><strong>Result:</strong>
+            <span th:text="${result}" th:classappend="${result == 'Pass'} ? 'pass' : 'fail'"></span>
+        </p>
+        <a href="/student" class="back-btn">Back to Form</a>
+    </div>
+</body>
+</html>
